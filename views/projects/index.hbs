@@ -1,0 +1,33 @@
+<h1>Projects lists</h1>
+
+<!--if we have a valid user, show "add a new project" link-->
+{{#if user}}
+    <a href="/projects/add">Add a new project</a>
+{{/if}}
+
+
+<table class="table table-hover table-striped">
+    <thead>
+    <th>Project</th>
+    <th>Description</th>
+    <th></th>
+    </thead>
+    {{#each projects}}
+        <tr>
+            <td>
+                {{#if ../user }}
+                    <a href="/projects/edit/{{this._id}}">{{this.name}}</a>
+                {{else}}
+                    {{this.name}}
+                {{/if}}
+            </td>
+            <td>{{this.description}}</td>
+        <td>
+            {{#if ../user}}
+                <a href="/projects/delete/{{this._id}}" class="text-danger" onclick="return confirmDelete();">Delete</a>
+            </td>
+
+            {{/if}}
+        </tr>
+    {{/each}}
+</table>

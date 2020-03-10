@@ -1,0 +1,46 @@
+<h1>Clients lists</h1>
+
+<!--if we have a valid user, show "add a new client" link-->
+{{#if user}}
+    <a href="/clients/add">Add a new Client</a>
+{{/if}}
+
+<table class="table table-hover table-striped">
+    <thead>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Province / State</th>
+    <th>Country</th>
+    <th>Postal Code</th>
+    <th>Email</th>
+    <th>Rate</th>
+    <th> </th>
+    </thead>
+  {{#each clients}}
+      <tr>
+          <td>
+          {{#if ../user}}
+              <a href="/clients/edit/{{this._id}}">{{this.name}}</a>
+          {{else}}
+              {{this.name}}
+          {{/if}}
+
+          </td>
+          <td>{{this.address}}</td>
+          <td>{{this.city}}</td>
+          <td>{{this.province}}</td>
+          <td>{{this.country}}</td>
+          <td>{{this.postalCode}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.rate}}</td>
+          <td>
+              {{#if ../user}}
+                  <a href="/clients/delete/{{this._id}}" class="text-danger" onclick="return confirmDelete();">Delete</a>
+
+              {{/if}}
+
+          </td>
+      </tr>
+  {{/each}}
+</table>

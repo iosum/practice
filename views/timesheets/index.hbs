@@ -1,0 +1,36 @@
+<h1>Hours lists</h1>
+
+<!--if we have a valid user, show "add a new project" link-->
+{{#if user}}
+<a href="/timesheets/add">Add new hours</a>
+{{/if}}
+
+<table class="table table-hover table-striped">
+    <thead>
+    <th>Client</th>
+    <th>Project</th>
+    <th>Hours</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th> </th>
+    </thead>
+{{#each timesheets}}
+
+    <tr>
+
+        <td>{{this.client}}</td>
+        <td>{{this.project}}</td>
+
+        <td>{{this.hours}}</td>
+        <td>{{this.date}}</td>
+        <td>{{this.description}}</td>
+        <td>
+            {{#if ../user}}
+                <a href="/timesheets/delete/{{this._id}}" class="text-danger" onclick="return confirmDelete();">Delete</a>
+
+            {{/if}}
+
+        </td>
+    </tr>
+{{/each}}
+</table>

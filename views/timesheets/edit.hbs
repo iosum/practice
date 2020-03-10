@@ -1,0 +1,28 @@
+<h1>Log Hours</h1>
+<form action="">
+    <div class="container-lg">
+        <div>
+            <label for="client">Client Name</label>
+            <input type="text" name="client" id="client" value="{{timesheets.client}}">
+        </div>
+        <div>
+            <label for="project">Project</label>
+            <input type="text" name="project" id="project" value="{{timesheets.project}}">
+        </div>
+        <div>
+            <label for="hours">hours</label>
+            <input type="text" name="hours" id="hours" value="{{timesheets.hours}}">
+        </div>
+        <div>
+            <label for="date">date</label>
+            <input type="date" name="date" id="date" value="{{timesheets.date}}">
+        </div>
+        <div>
+            <label for="description">description</label>
+            <input type="text" name="description" id="description" value="{{timesheets.description}}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+
+</form>
